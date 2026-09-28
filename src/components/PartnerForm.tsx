@@ -152,7 +152,7 @@ export function PartnerForm() {
 
     if (error) {
       setStatus("failed")
-      setFailure(error.message || "We could not save your partnership. Please try again.")
+      setFailure("We could not save your partnership. Please try again.")
       return
     }
     setStatus("sent")
