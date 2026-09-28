@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --black: #060608;
+  --glass-fill: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --gold: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --violet-glow: rgba(88, 60, 140, 0.28);
+}
+
+html,
+body {
+  background: var(--black);
+}
+
+#content > section {
+  background-color: transparent;
+}
+
+#content p.uppercase {
+  font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+}
+
+.glass-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--glass-fill);
+  border-radius: 20px;
+  border-top: 1px solid var(--glass-border);
+  border-left: 1px solid var(--glass-border);
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  pointer-events: none;
+}
+
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    220px circle at var(--sheen-x, 50%) var(--sheen-y, 0%),
+    rgba(255, 255, 255, 0.16),
+    transparent 62%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-out;
+}
+
+.glass-panel:hover::after {
+  opacity: 1;
+}
+
+.glass-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-bar {
+  background: var(--glass-fill);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 var(--glass-border);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.glass-input {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  padding: 0 0.75rem;
+  color: #f4f4f5;
+  outline: none;
+}
+
+textarea.glass-input {
+  min-height: 8rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.glass-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px var(--gold-glow);
+}
+
+select.glass-input {
+  color-scheme: dark;
+  width: 100%;
+  max-width: 100%;
+  background-color: #16161c;
+  color: #f4f4f5;
+  padding-right: 2.25rem;
+}
+
+select.glass-input option {
+  background-color: #16161c;
+  color: #f4f4f5;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 46rem;
+  height: 46rem;
+  border-radius: 999px;
+  filter: blur(90px);
+}
+
+.blob-gold {
+  top: -16rem;
+  left: -12rem;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 68%);
+  animation: drift-gold 75s ease-in-out infinite;
+}
+
+.blob-violet {
+  right: -14rem;
+  bottom: -18rem;
+  background: radial-gradient(circle, var(--violet-glow) 0%, transparent 70%);
+  animation: drift-violet 90s ease-in-out infinite;
+}
+
+.blob-gold-far {
+  top: 18%;
+  right: -8rem;
+  width: 32rem;
+  height: 32rem;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  animation: drift-far 60s ease-in-out infinite;
+}
+
+@keyframes drift-gold {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(8vw, 7vh, 0);
+  }
+}
+
+@keyframes drift-violet {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-9vw, -6vh, 0);
+  }
+}
+
+@keyframes drift-far {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-6vw, 8vh, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-panel,
+  .glass-bar,
+  .glass-input {
+    background: #14141a;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
