@@ -337,7 +337,7 @@ export function PartnerForm() {
                 className={fieldClass}
                 aria-invalid={Boolean(errors.area_of_partnership)}
               >
-                <option value="">Select an area</option>
+                <option value="">Select an area of partnership</option>
                 {AREAS_OF_PARTNERSHIP.map((a) => (
                   <option key={a} value={a}>
                     {a}
@@ -404,7 +404,7 @@ export function PartnerForm() {
                   className={fieldClass}
                   aria-invalid={Boolean(errors.payment_method)}
                 >
-                  <option value="">Select a method</option>
+                  <option value="">Select a preferred payment method</option>
                   {PAYMENT_METHODS.map((m) => (
                     <option key={m} value={m}>
                       {m}

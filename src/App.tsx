@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Layout } from "./components/Layout.tsx"
+import { Admin } from "./pages/Admin.tsx"
 import { Home } from "./pages/Home.tsx"
 import { Partner } from "./pages/Partner.tsx"
 import { Projects } from "./pages/Projects.tsx"
@@ -12,6 +13,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>

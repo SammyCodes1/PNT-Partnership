@@ -68,7 +68,7 @@ export function Navbar() {
         {open ? (
           <motion.div
             id="mobile-nav"
-            className="glass-panel mx-4 mb-3 md:hidden"
+            className="mx-4 mb-3 rounded-2xl border border-[var(--gold)]/30 bg-[#121218]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden"
             initial={reduce ? false : { opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, y: -16 }}
