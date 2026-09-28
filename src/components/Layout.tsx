@@ -22,6 +22,7 @@ export function Layout() {
           Skip to content
         </a>
         <Navbar />
+        <div className="h-20 shrink-0" aria-hidden="true" />
         <main id="content" className="min-w-0 flex-1">
           <Outlet />
         </main>

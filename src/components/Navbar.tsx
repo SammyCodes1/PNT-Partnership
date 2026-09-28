@@ -20,13 +20,13 @@ export function Navbar() {
   const reduce = useReducedMotion()
 
   return (
-    <header className="glass-bar sticky top-0 z-30">
+    <header className="glass-bar fixed inset-x-0 top-0 z-30">
       <nav
         className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 md:px-8"
         aria-label="Primary"
       >
         <NavLink to="/" className="inline-flex items-center" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Psalmist Nation Tabernacle" className="h-14 w-auto" />
+          <img src={logo} alt="Psalmist Nation Tabernacle" className="h-14 w-14 shrink-0 object-contain" />
         </NavLink>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
