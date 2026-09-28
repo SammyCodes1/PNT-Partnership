@@ -21,7 +21,7 @@ export function Home() {
 
   return (
     <>
-      <section className="flex min-h-[calc(100dvh-5rem)] items-center bg-[#0A0A0A] px-4 py-8 sm:py-12">
+      <section className="flex items-center bg-[#0A0A0A] px-4 pb-4 pt-8 sm:min-h-[calc(100dvh-5rem)] sm:py-12">
         <Reveal className="mx-auto flex w-full min-w-0 max-w-3xl flex-col items-center text-center">
           <img src={logo} alt="" className="mx-auto block h-24 w-auto max-w-[70%] sm:h-36 sm:max-w-full" />
           <h1 className="mt-6 max-w-full font-display text-[2rem] font-extrabold leading-[1.15] text-balance text-[#F4F4F5] sm:text-4xl md:text-5xl">
@@ -36,7 +36,7 @@ export function Home() {
         </Reveal>
       </section>
 
-      <section className="bg-[#0A0A0A] px-4 py-12 sm:py-16 md:px-8 md:py-24">
+      <section className="bg-[#0A0A0A] px-4 pb-12 pt-4 sm:py-16 md:px-8 md:py-24">
         <Reveal className="mx-auto w-full min-w-0 max-w-3xl">
           <h2 className="font-display text-3xl font-extrabold leading-[1.15] text-balance md:text-5xl">Our Vision</h2>
           <p className="mt-6 text-base leading-relaxed text-[#D4D4D4]">
