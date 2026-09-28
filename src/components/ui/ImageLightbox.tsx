@@ -60,7 +60,7 @@ export function ImageLightbox({ title, images, startIndex, onClose }: ImageLight
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/75 p-4 sm:items-center"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
       role="dialog"
       aria-modal="true"
       aria-label={`${title} photos`}
