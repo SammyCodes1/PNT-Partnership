@@ -22,8 +22,22 @@ export function ImageLightbox({ title, images, startIndex, onClose }: ImageLight
   }
 
   useEffect(() => {
-    const previous = document.body.style.overflow
-    document.body.style.overflow = "hidden"
+    const scrollY = window.scrollY
+    const { style } = document.body
+    const previous = {
+      position: style.position,
+      top: style.top,
+      left: style.left,
+      right: style.right,
+      width: style.width,
+      overflow: style.overflow,
+    }
+    style.position = "fixed"
+    style.top = `-${scrollY}px`
+    style.left = "0"
+    style.right = "0"
+    style.width = "100%"
+    style.overflow = "hidden"
 
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") onClose()
@@ -33,7 +47,13 @@ export function ImageLightbox({ title, images, startIndex, onClose }: ImageLight
 
     window.addEventListener("keydown", onKey)
     return () => {
-      document.body.style.overflow = previous
+      style.position = previous.position
+      style.top = previous.top
+      style.left = previous.left
+      style.right = previous.right
+      style.width = previous.width
+      style.overflow = previous.overflow
+      window.scrollTo(0, scrollY)
       window.removeEventListener("keydown", onKey)
     }
   }, [images.length, onClose])
@@ -70,7 +90,7 @@ export function ImageLightbox({ title, images, startIndex, onClose }: ImageLight
           >
             ‹
           </button>
-          <img src={current} alt="" className="max-h-[62dvh] min-w-0 flex-1 rounded-[12px] object-contain" />
+          <img src={current} alt="" className="max-h-[42dvh] min-w-0 flex-1 rounded-[12px] object-contain sm:max-h-[62dvh]" />
           <button
             type="button"
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[12px] border border-[var(--gold)] text-lg font-semibold text-[var(--gold)] disabled:opacity-40"
